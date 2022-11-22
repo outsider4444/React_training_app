@@ -5,6 +5,7 @@ const Settings = (props) => {
     return(
         <div className={style.content}>
             Мои настройки
+            {props.check}
         </div>
     );
 }

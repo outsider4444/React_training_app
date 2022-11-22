@@ -18,11 +18,13 @@ const App = () => {
                 <Navbar/>
                 <div className="app-wrapper-content">
                     <Routes>
-                        <Route path="/profile/" element={<Profile/>}/>
-                        <Route path="/dialogs/" element={<Dialogs/>}/>
-                        <Route path="/news/" element={<News/>}/>
-                        <Route path="/music/" element={<Music/>}/>
-                        <Route path="/settings/" element={<Settings/>}/>
+                        <Route path="/profile" element={<Profile/>}/>
+                        <Route path="/dialogs/*" element={<Dialogs/>}/>
+                        <Route path="/news" element={<News/>}/>
+                        <Route path="/music" element={<Music/>}/>
+                        {/*    props рописывать можно прямо в элементе */}
+                        <Route path="/settings" element={<Settings check={" Привет"}/> } />
+
                     </Routes>
                 </div>
             </div>

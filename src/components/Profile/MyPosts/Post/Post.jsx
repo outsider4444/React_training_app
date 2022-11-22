@@ -6,8 +6,10 @@ const Post = (props) =>{
         <div className={style.item}>
             <img src="https://vraki.net/sites/default/files/inline/images/1_6.png" alt=""/>
             <span>{props.name}</span>
-            <p>{props.post}</p>
-
+            <div>{props.post}</div>
+            <div>
+                Лайки: {props.likes}
+            </div>
         </div>
     )
 }

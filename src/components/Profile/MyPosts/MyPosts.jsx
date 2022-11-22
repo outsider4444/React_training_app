@@ -2,21 +2,26 @@ import React from "react";
 import style from './MyPosts.module.css';
 import Post from "./Post/Post";
 const MyPosts = () =>{
+
+    let postData = [
+        { id: "1", text: "Привет", name: "Dima", likesCount: 12 }, { id: "2", text: "Букет", name: "Danya", likesCount: 0 },
+        { id: "3", text: "Омлет", name: "Lesha", likesCount: 1 },
+    ]
+
+    let postsElements = postData.map( post => <Post name={post.name} post={post.text} likes={post.likesCount} />);
+
     return(
-            <div>
-                Мои посты
+            <div className={style.postsBlock}>
+                <h3>Мои посты</h3>
                 <div>
-                    Новый пост
+                    <textarea name="" id="" cols="30" rows="10" placeholder={"Текст поста"}></textarea>
                 </div>
-                <textarea name="" id="" cols="30" rows="10" placeholder={"Текст поста"}></textarea>
-                <button>Добавить пост</button>
                 <div>
+                    <button>Добавить пост</button>
+                </div>
+                <div className={style.posts}>
                     Список постов
-                    <Post name={"Dima"} post={"Текст 1"}/>
-                    <Post name={"Danya"} post={"Текст 2"}/>
-                    <Post name={"Lesha"} post={"Текст 3"}/>
-                    <Post name={"Shenya"} post={"Текст 4"}/>
-                    <Post name={"Dima"} post={"Текст 5"}/>
+                    {postsElements}
                 </div>
             </div>
     )
