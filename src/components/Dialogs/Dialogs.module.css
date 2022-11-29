@@ -2,13 +2,14 @@
     display: grid;
     grid-template-columns: 2fr 10fr;
     color: white;
+    margin-top: 5px;
 }
 .dialogs .dialogsItems{
     padding: 10px;
     color: white;
 }
 .dialogsItems .dialog{
-
+    margin-top: 5px;
 }
 
 .active{
@@ -20,4 +21,10 @@
 }
 .messages .message{
     color:white;
+    height: 50px;
+    margin-top: 5px;
+}
+img{
+    height: 50px;
+    width: 50px;
 }
