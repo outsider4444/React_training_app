@@ -3,29 +3,39 @@ import style from './MyPosts.module.css';
 import Post from "./Post/Post";
 
 
-const MyPosts = (props) =>{
-    let postsElements = props.postData.map( post => <Post name={post.name} post={post.text} likes={post.likesCount} />);
+const MyPosts = (props) => {
+    let postsElements = props.state.postData.map(post =>
+        <Post key={post.id} name={post.name} post={post.text} likes={post.likesCount}/>);
 
-    let newPostElement = React.createRef(); //ref ={} -> присвоение ссылки к элементу html
+    let newPostElement = React.createRef(); //ref = {} -> присвоение ссылки к элементу html
 
-    let addPost = () =>{
-        let text = newPostElement.current.value; // получение значения элемента
-        props.addPost(text);
+    let addPost = () => {
+        props.addPost();
     }
-    return(
-            <div className={style.postsBlock}>
-                <h3>Мои посты</h3>
-                <div>
-                    <textarea ref={newPostElement} rows="5" placeholder={"Текст поста"}></textarea>
-                </div>
-                <div>
-                    <button onClick={addPost}>Добавить пост</button>
-                </div>
-                <div className={style.posts}>
-                    Список постов
-                    {postsElements}
-                </div>
+    // Ререндер страницы посимвольно. Концепция FLUX.
+    let onPostChange = () => {
+        let text = newPostElement.current.value; // получение значения элемента
+        props.updateNewPostText(text); // Отправка значения в переменную в state
+    }
+
+    return (
+        <div className={style.postsBlock}>
+            <h3>Мои посты</h3>
+            <div>
+                <textarea
+                    onChange={onPostChange}
+                    ref={newPostElement} rows="5"
+                    placeholder={"Введите текст..."}
+                    value={props.state.newPostText}/>
             </div>
+            <div>
+                <button onClick={addPost}>Добавить пост</button>
+            </div>
+            <div className={style.posts}>
+                Список постов
+                {postsElements}
+            </div>
+        </div>
     )
 }
 export default MyPosts;

@@ -7,7 +7,7 @@ const Profile = (props) =>{
     return(
         <div className={style.content}>
             <ProfileInfo friendsData={props.state.friendsData} />
-            <MyPosts postData={props.state.postData} addPost={props.addPost}/>
+            <MyPosts postData={props.state.postData} addPost={props.addPost} state={props.state} updateNewPostText={props.updateNewPostText}/>
         </div>)
 }
 export default Profile;

@@ -1,10 +1,9 @@
 import React from "react";
 import style from './ProfileInfo.module.css';
 import Friends from "../Friend/Friends";
-import Post from "../MyPosts/Post/Post";
 
 const ProfileInfo = (props) => {
-    let friendElements = props.friendsData.map( friend => <Friends id={friend.id} name={friend.name} avatar={friend.avatar} />);
+    let friendElements = props.friendsData.map( friend => <Friends key={friend.id} id={friend.id} name={friend.name} avatar={friend.avatar} />);
     return (
         <div>
             <div>
